@@ -1,37 +1,60 @@
-# Arbitrage Opportunity Detection by OctoBot
+# Arbitrage Opportunity Detection
 
-This Python-based project utilizes the ccxt and OctoBot libraries to detect potential arbitrage opportunities across multiple assets in cryptocurrency markets. It identifies profitable cycles where you can trade through a series of assets and return to the original asset with a potential gain, making it applicable for arbitrage strategies beyond just triangular cycles.
+A Python-based tool that detects potential arbitrage opportunities across multiple assets in cryptocurrency markets using ccxt and OctoBot libraries.
 
-## Description
+## Overview
 
-Arbitrage trading is a process where you trade from one asset or currency to another, and then continue trading through a series of assets until you eventually return to the original asset or currency. The goal is to exploit price differences between multiple assets to generate a profit. This project provides a method to identify the best arbitrage opportunities in a multi-asset cycle, given a list of last prices for different cryptocurrency pairs.
+This project identifies profitable trading cycles where you can trade through a series of assets and return to the original asset with a potential gain. It's designed for arbitrage strategies beyond just triangular cycles, supporting multi-asset arbitrage detection.
 
-Note: The results do not account for fees during trades. This can have a significant impact on performance.
+## Features
 
-## Getting Started
+- **Multi-Asset Arbitrage**: Detect profitable cycles across multiple assets
+- **Exchange Support**: Works with any exchange supported by ccxt
+- **Configurable Detection**: Customizable symbol lists and filters
+- **Fee Consideration**: Note: Results don't account for trading fees
+- **Flexible Configuration**: Easy exchange and parameter modification
 
-### Dependencies
-* Python 3.10
+## Installation
 
-### Installing
+### Prerequisites
+- Python 3.10 or higher
+
+### Setup
 ```bash
 pip3 install -r requirements.txt
 ```
 
-### Usage
-Start detection by running:
+## Usage
+
+Start arbitrage detection:
 ```bash
 python3 main.py
 ```
 
-### Configuration
-To change the exchange edit `main.py` `exchange_name` value to the desired exchange. It should match the exchange ccxt id value.
+## Configuration
 
-You can also provide a list of symbols to ignore or whitelist when calling `run_detection`.
+- Edit `main.py` to change the exchange (must match ccxt exchange ID)
+- Configure symbol lists for ignore/whitelist filtering
+- Adjust detection parameters as needed
+
+## How It Works
+
+The tool analyzes price differences across multiple trading pairs to identify profitable arbitrage cycles. It calculates potential gains from trading through a series of assets and returning to the original asset.
+
+## Important Notes
+
+- Trading fees are not included in calculations
+- Results may vary based on market conditions
+- Thorough testing is recommended before live trading
 
 ## Project Structure
-- `triangular_arbitrage/` - Core logic
+
+- `triangular_arbitrage/` - Core arbitrage logic
 - `tests/` - Test files
-- `main.py` - Entry point
-- `requirements.txt` - Dependencies
-- `README.md` - Documentation
+- `main.py` - Main entry point
+- `requirements.txt` - Python dependencies
+- `Dockerfile` - Container configuration
+
+## License
+
+MIT License
